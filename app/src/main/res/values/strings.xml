@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Ball Out</string>
+    <string name="appTitle">BALL OUT!</string>
+    <string name="nameLabel">Enter Your Name</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="logo_content_description">Logo</string>
+    <string name="home_button_text">Go</string>
+</resources>
