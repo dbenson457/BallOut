@@ -1,14 +1,14 @@
 package uk.aston.ballout;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import androidx.fragment.app.FragmentActivity;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -24,53 +24,53 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private static final int REQUEST_LOCATION_PERMISSION = '6';
     private GoogleMap mMap;
 
-    private final LatLng ASP = new LatLng(52.49294566788942, -1.9346396232146283);
-    private final LatLng BRP = new LatLng(52.49878482265995, -1.931534825725685);
-    private final LatLng BSP = new LatLng(52.50234394537593, -1.9477637553102993);
-    private final LatLng BuSP = new LatLng(52.499732532321396, -1.9095909118349061);
-    private final LatLng CVCP = new LatLng(52.519750718186316, -1.789307114656127);
-    private final LatLng CG = new LatLng(52.4752332162509, -1.9277238946061277);
-    private final LatLng CHRP = new LatLng(52.50817581249928, -1.9090306150015404);
-    private final LatLng CP = new LatLng(52.420991874830946, -1.9276329215207262);
-    private final LatLng DSP = new LatLng(52.47811883801278, -1.8562303996361857);
-    private final LatLng FP = new LatLng(52.46474174775808, -1.8718581700503871);
-    private final LatLng GP = new LatLng(52.499536375762396, -1.9137615121273694);
-    private final LatLng GiP = new LatLng(52.46527628525982, -1.802822677280337);
-    private final LatLng HBP = new LatLng(52.473055587062746, -1.852306405049815);
-    private final LatLng LHP = new LatLng(52.42168644793194, -1.9797671270593806);
-    private final LatLng LP = new LatLng(52.49432363086415, -1.7612687704811796);
-    private final LatLng NCP = new LatLng(52.49029823204169, -1.7707811780319298);
-    private final LatLng ORG = new LatLng(52.46632491878677, -1.818223963680507);
-    private final LatLng PRP = new LatLng(52.45127174872902, -1.8575124169783173);
-    private final LatLng PHP = new LatLng(52.52325032055217, -1.913480559641286);
-    private final LatLng SP = new LatLng(52.43668537705867, -1.9862228705844631);
-    private final LatLng SFP = new LatLng(52.43600271719133, -1.9582797117262132);
-    private final LatLng SHP = new LatLng(52.46639256123608, -1.853664415339958);
-    private final LatLng TCP = new LatLng(52.478687288181476, -1.7628058408307914);
+    public final LatLng ASP = new LatLng(52.49294566788942, -1.9346396232146283);
+    public final LatLng BRP = new LatLng(52.49878482265995, -1.931534825725685);
+    public final LatLng BSP = new LatLng(52.50234394537593, -1.9477637553102993);
+    public final LatLng BuSP = new LatLng(52.499732532321396, -1.9095909118349061);
+    public final LatLng CVCP = new LatLng(52.519750718186316, -1.789307114656127);
+    public final LatLng CG = new LatLng(52.4752332162509, -1.9277238946061277);
+    public final LatLng CHRP = new LatLng(52.50817581249928, -1.9090306150015404);
+    public final LatLng CP = new LatLng(52.420991874830946, -1.9276329215207262);
+    public final LatLng DSP = new LatLng(52.47811883801278, -1.8562303996361857);
+    public final LatLng FP = new LatLng(52.46474174775808, -1.8718581700503871);
+    public final LatLng GP = new LatLng(52.499536375762396, -1.9137615121273694);
+    public final LatLng GiP = new LatLng(52.46527628525982, -1.802822677280337);
+    public final LatLng HBP = new LatLng(52.473055587062746, -1.852306405049815);
+    public final LatLng LHP = new LatLng(52.42168644793194, -1.9797671270593806);
+    public final LatLng LP = new LatLng(52.49432363086415, -1.7612687704811796);
+    public final LatLng NCP = new LatLng(52.49029823204169, -1.7707811780319298);
+    public final LatLng ORG = new LatLng(52.46632491878677, -1.818223963680507);
+    public final LatLng PRP = new LatLng(52.45127174872902, -1.8575124169783173);
+    public final LatLng PHP = new LatLng(52.52325032055217, -1.913480559641286);
+    public final LatLng SP = new LatLng(52.43668537705867, -1.9862228705844631);
+    public final LatLng SFP = new LatLng(52.43600271719133, -1.9582797117262132);
+    public final LatLng SHP = new LatLng(52.46639256123608, -1.853664415339958);
+    public final LatLng TCP = new LatLng(52.478687288181476, -1.7628058408307914);
 
-    private Marker markerASP;
-    private Marker markerBRP;
-    private Marker markerBSP;
-    private Marker markerBuSP;
-    private Marker markerCVCP;
-    private Marker markerCG;
-    private Marker markerCHRP;
-    private Marker markerCP;
-    private Marker markerDSP;
-    private Marker markerFP;
-    private Marker markerGP;
-    private Marker markerGiP;
-    private Marker markerHBP;
-    private Marker markerLHP;
-    private Marker markerLP;
-    private Marker markerNCP;
-    private Marker markerORG;
-    private Marker markerPRP;
-    private Marker markerPHP;
-    private Marker markerSP;
-    private Marker markerSFP;
-    private Marker markerSHP;
-    private Marker markerTCP;
+    public Marker markerASP;
+    public Marker markerBRP;
+    public Marker markerBSP;
+    public Marker markerBuSP;
+    public Marker markerCVCP;
+    public Marker markerCG;
+    public Marker markerCHRP;
+    public Marker markerCP;
+    public Marker markerDSP;
+    public Marker markerFP;
+    public Marker markerGP;
+    public Marker markerGiP;
+    public Marker markerHBP;
+    public Marker markerLHP;
+    public Marker markerLP;
+    public Marker markerNCP;
+    public Marker markerORG;
+    public Marker markerPRP;
+    public Marker markerPHP;
+    public Marker markerSP;
+    public Marker markerSFP;
+    public Marker markerSHP;
+    public Marker markerTCP;
 
 
 
@@ -80,7 +80,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         setContentView(R.layout.activity_maps);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
+                .findFragmentById(R.id.locationMap);
         mapFragment.getMapAsync(this);
     }
 
@@ -239,6 +239,28 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     public void onInfoWindowClick(Marker marker) {
         Toast.makeText(this, "Info window clicked",
                 Toast.LENGTH_SHORT).show();
+
+        Bundle location = new Bundle();
+        location.putParcelable("locLat", marker.getPosition());
+        location.putString("title", marker.getTitle());
+        location.putString("desc", marker.getSnippet());
+
+        Intent intent = new Intent(this, ViewLocation.class);
+        intent.putExtras(location);
+        startActivity(intent);
+    }
+
+    public void launchLocationActivity(View view, Marker m) {
+
+        Bundle location = new Bundle();
+        location.putParcelable("locLat", m.getPosition());
+        location.putString("title", m.getTitle());
+        location.putString("desc", m.getSnippet());
+
+        Intent intent = new Intent(this, ViewLocation.class);
+        intent.putExtras(location);
+        startActivity(intent);
+
     }
 
 }

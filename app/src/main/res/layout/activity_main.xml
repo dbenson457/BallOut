@@ -27,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
-        android:onClick="launchMapsActivity"
+        android:onClick="launchMenuActivity"
         android:text="@string/home_button_text"
         android:textColor="#FFFFFF"
         android:textSize="18sp"

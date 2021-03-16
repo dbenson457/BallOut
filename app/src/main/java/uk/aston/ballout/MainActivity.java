@@ -7,8 +7,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
-public class MainActivity extends AppCompatActivity {
+import java.io.File;
 
+public class MainActivity extends AppCompatActivity {
 
     private static final String LOG_TAG =
             MainActivity.class.getSimpleName();
@@ -19,8 +20,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void launchMapsActivity(View view) {
-        Intent intent = new Intent(this, MapsActivity.class);
+    public void launchMenuActivity(View view) {
+        Intent intent = new Intent(this, Menu.class);
         startActivity(intent);
 
     }
