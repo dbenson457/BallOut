@@ -19,4 +19,10 @@ public class Menu extends AppCompatActivity {
         startActivity(intent);
 
     }
+
+    public void launchSessionsActivity(View view) {
+        Intent intent = new Intent(this, SessionView.class);
+        startActivity(intent);
+
+    }
 }

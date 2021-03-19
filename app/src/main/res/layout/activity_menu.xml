@@ -4,19 +4,98 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#17408b"
     tools:context=".Menu">
 
-    <Button
-        android:id="@+id/button"
+
+    <TextView
+        android:id="@+id/menu_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="launchMapsActivity"
-        android:text="Button"
+        android:text="@string/menuTitle"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.11"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.118"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintVertical_bias="0.022" />
+
+    <ImageView
+        android:id="@+id/map_image"
+        android:layout_width="91dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="144dp"
+        android:contentDescription="@string/map_icon_desc"
+        android:onClick="launchMapsActivity"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/menu_title"
+        app:srcCompat="@drawable/location" />
+
+    <ImageView
+        android:id="@+id/favourites_icon"
+        android:layout_width="96dp"
+        android:layout_height="92dp"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="376dp"
+        android:contentDescription="@string/favourite_icon_desc"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/menu_title"
+        app:srcCompat="@drawable/favourite" />
+
+    <ImageView
+        android:id="@+id/sessions_icon"
+        android:layout_width="95dp"
+        android:layout_height="96dp"
+        android:layout_marginStart="256dp"
+        android:layout_marginTop="144dp"
+        android:contentDescription="@string/sessons_icon_desc"
+        android:onClick="launchSessionsActivity"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/menu_title"
+        app:srcCompat="@drawable/basketball" />
+
+    <TextView
+        android:id="@+id/icon_text"
+        android:layout_width="91dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="100dp"
+        android:text="@string/map_icon_desc"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/map_image"
+        app:layout_constraintTop_toTopOf="@+id/map_image" />
+
+    <TextView
+        android:id="@+id/favoirites_text"
+        android:layout_width="95dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="92dp"
+        android:text="@string/favourite_icon_desc"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/favourites_icon"
+        app:layout_constraintTop_toTopOf="@+id/favourites_icon" />
+
+    <TextView
+        android:id="@+id/sessions_text"
+        android:layout_width="95dp"
+        android:layout_height="67dp"
+        android:layout_marginTop="96dp"
+        android:text="@string/sessons_icon_desc"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/sessions_icon"
+        app:layout_constraintTop_toTopOf="@+id/sessions_icon" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,24 +1,17 @@
 <resources>
     <string name="app_name">Ball Out</string>
     <string name="appTitle">BALL OUT!</string>
-    <string name="nameLabel">Enter Your Name</string>
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_menu">Menu</string>
     <string name="logo_content_description">Logo</string>
     <string name="home_button_text">Go</string>
-    <string name="title_activity_nav__drawer">Nav_Drawer</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
 
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
     <string name="lTitle">TextView</string>
     <string name="lDesc">TextView</string>
     <string name="session_button_text">Start Session</string>
     <string name="stop_session_text">Stop Session</string>
+    <string name="menuTitle">Please Choose</string>
+    <string name="map_icon_desc">View the Map</string>
+    <string name="favourite_icon_desc">View your Favourite Parks</string>
+    <string name="sessons_icon_desc">View your Previous Sessions</string>
 </resources>
