@@ -14,4 +14,7 @@
     <string name="map_icon_desc">View the Map</string>
     <string name="favourite_icon_desc">View your Favourite Parks</string>
     <string name="sessons_icon_desc">View your Previous Sessions</string>
+    <string name="session_list_text">demo Text</string>
+    <string name="delete_all_button">Delete All</string>
+    <string name="filter_Button">Filter</string>
 </resources>

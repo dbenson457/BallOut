@@ -15,7 +15,7 @@ public class Menu extends AppCompatActivity {
     }
 
     public void launchMapsActivity(View view) {
-        Intent intent = new Intent(this, MapsActivity.class);
+        Intent intent = new Intent(this, ParkMap.class);
         startActivity(intent);
 
     }

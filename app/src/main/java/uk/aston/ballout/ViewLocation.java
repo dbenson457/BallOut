@@ -2,6 +2,7 @@ package uk.aston.ballout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.SystemClock;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -19,6 +21,11 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.text.BreakIterator;
+import java.util.Date;
 
 public class ViewLocation extends AppCompatActivity implements OnMapReadyCallback {
 
@@ -28,6 +35,8 @@ public class ViewLocation extends AppCompatActivity implements OnMapReadyCallbac
     private GoogleMap mMap;
     public Chronometer stopwatch ;
     private long $pausedTime = 0;
+
+    private Button stopButton;
 
 
     @Override
@@ -51,8 +60,39 @@ public class ViewLocation extends AppCompatActivity implements OnMapReadyCallbac
 
         stopwatch = (Chronometer) findViewById(R.id.stopwatch);
 
+        stopButton = findViewById(R.id.session_stop);
+
+        stopButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(!stopwatch.getText().toString().equals(""))
+                {
+                    String timeTaken = stopwatch.getText().toString();
+                    writeToFile($title + "," + new Date().toString() + "," +  timeTaken);
+                    Toast.makeText(ViewLocation.this, "Saved!", Toast.LENGTH_LONG).show();
+                }
+
+            }
+        });
 
 
+    }
+
+    private void writeToFile(String message)
+    {
+        try {
+            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(openFileOutput("sessionList.txt",
+                    Context.MODE_APPEND));
+            outputStreamWriter.write(message);
+            outputStreamWriter.write("\n");
+            outputStreamWriter.close();
+
+        } catch(FileNotFoundException e)
+        {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
