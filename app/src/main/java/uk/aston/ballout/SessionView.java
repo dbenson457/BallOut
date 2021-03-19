@@ -13,10 +13,5 @@ public class SessionView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_session_view);
 
-
-        RecyclerView recyclerView = findViewById(R.id.recyclerview);
-        final SessionListAdapter adapter = new SessionListAdapter(new SessionListAdapter.SessionDiff());
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 }
